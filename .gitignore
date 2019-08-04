@@ -2,3 +2,4 @@ config.code-workspace
 robot-tasks-master/pyrob/__pycache__/**
 robot-tasks-master/__pycache__/**
 robot-tasks-master/pyrob/**
+robot-tasks-master/pyrob/tasks/__pycache__/**
