@@ -2,27 +2,19 @@ import turtle as t
 
 t.shape('turtle')
 
+c=144
+r = 200
 
-def circle_1(d1):
+t.penup()
+t.forward(100)
+t.left(90)
+t.forward(30)
+t.pendown()
+t.left(90)
 
-    while d1 > 0:
-        t.forward(0.5)
-        t.left(1)
-        d1 -= 1
+for i in range(4):
+	t.forward(r)
+	t.left(c)
+t.forward(r)
 
-
-def circle_2(d2):
-
-    while d2 > 0:
-        t.forward(0.5)
-        t.right(1)
-        d2 -= 1
-    t.left(60)
-
-
-i = 0
-while i < 3:
-    circle_1(360)
-    circle_2(360)
-    i += 1
 t.mainloop()
