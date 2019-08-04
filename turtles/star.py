@@ -10,12 +10,14 @@ t.forward(30)
 t.pendown()
 t.left(90)
 
+
 def star(n, dlina):
-	if n%2!=0:
-		for i in range(n):
-			t.forward(dlina)
-			angle = n//2*360/n
-			t.left(angle)
+    if n % 2 != 0:
+        for i in range(n):
+            t.forward(dlina)
+            angle = n//2*360/n
+            t.left(angle)
+            t.left(10)
 
 
 star(21, 300)
