@@ -7,12 +7,10 @@ from pyrob.api import *
 def task_8_29():
     while not wall_is_on_the_right() and wall_is_above() and wall_is_beneath():
         move_right()
-        if not wall_is_above() and not wall_is_beneath():
-            while not wall_is_above() and wall_is_on_the_right():
-                move_up()
-                if not wall_is_on_the_left() and wall_is_above() and not wall_is_beneath():
-                    while not wall_is_on_the_left() and wall_is_above() and not wall_is_beneath():
-                        move_left()
+        while not wall_is_above() and wall_is_on_the_right():
+            move_up()
+            while not wall_is_on_the_left() and wall_is_above() and not wall_is_beneath():
+                move_left()
 
     if wall_is_on_the_right() and wall_is_above() and wall_is_beneath():
         while not wall_is_on_the_left() and wall_is_above() and wall_is_beneath():
