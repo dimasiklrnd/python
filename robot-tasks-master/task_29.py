@@ -16,7 +16,7 @@ def task_7_7():
                 n += 1
                 move_right()
                 if n < 3 and cell_is_filled():
-                    n += 1
+                    n += 1000
 
 
 if __name__ == '__main__':
