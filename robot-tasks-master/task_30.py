@@ -8,12 +8,14 @@ def rd():
     move_down()
 
 
-# пробег по кругу
-def around():
-    counterWidth = 1  # счетчик. Узнаем длинну поля
+@task(delay=0.01)
+def task_9_3():
+
+    # first around
+    counterWidth = 1
     while not wall_is_on_the_right():
         move_right()
-        counterWidth += 1
+        counterWidth += 1  # счетчик. Узнаем длинну поля
         if not wall_is_on_the_right():
             fill_cell()
 
@@ -31,51 +33,55 @@ def around():
         move_up()
         if not wall_is_above():
             fill_cell()
-
     rd()
-    n = 2
-    width = (counterWidth//2)-1
+
+# other around
+    n = 2  # отступ справа второго круга, т.к. этот цикл начинаем с него
+    width = (counterWidth//2)-1  # количество оборотов
+
     while width > 0:
+
         r = n
-        while counterWidth-r > r:
+        r1 = (counterWidth-r)
+        while r1 > r:
             move_right()
             fill_cell()
             r += 1
         move_right()
+
         d = n
-        while counterWidth-d > d:
+        d1 = (counterWidth-d)
+        while d1 > d:
             move_down()
             fill_cell()
             d += 1
-        l = n
         move_down()
 
-        while counterWidth-l > l:
+        l = n
+        l1 = (counterWidth-l)
+        while l1 > l:
             move_left()
             fill_cell()
             l += 1
-
         move_left()
+
         u = n
-        while counterWidth-u > u:
+        u1 = (counterWidth-u)
+        while u1 > u:
             move_up()
             fill_cell()
             u += 1
-
         move_up()
 
-    width -= 1
-    n += 1
+        width -= 1
+        n += 1
+        rd()
 
-    """while not wall_is_on_the_left():
+# уходим в левый нижний угол
+    while not wall_is_on_the_left():
         move_left()
         while not wall_is_beneath():
-            move_down()"""
-
-
-@task(delay=0.01)
-def task_9_3():
-    around()
+            move_down()
 
 
 if __name__ == '__main__':
