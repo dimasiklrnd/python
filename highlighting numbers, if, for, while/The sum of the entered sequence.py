@@ -7,8 +7,11 @@
 
 Формат выходных данных
 Вывести одно целое число - сумму последовательности.'''
+n = int(input())
+x = 0
+while n > 0:
+    x = x + n
+    n = int(input())
 
-len = 0
-while int(input()) > 0:
-    len += int(input())
-print(len)
+
+print(x)
