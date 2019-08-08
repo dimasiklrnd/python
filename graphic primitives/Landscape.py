@@ -66,6 +66,7 @@ def roof():
 
 
 def cloud():
+    # здесь лучше написать одну функцию, и вызывать ее с разными параметрами
     cloud = gr.Circle(gr.Point(w/10, h/10), 20)
     cloud.setFill('white')
     j = w
@@ -101,7 +102,7 @@ def moon():
 
 # ветви елки
 def tree():
-    p = h
+    p = h # здесь лучше написать одну функцию, и вызывать ее с разными параметрами
     tree = gr.Polygon(gr.Point(w/1.4-50, h/2+70), gr.Point(w /
                                                            1.4+40, h/2-30), gr.Point(w/1.4+120, h/2+70))
     tree.setFill('darkgreen')
