@@ -20,6 +20,7 @@ def land():
     land.setFill('lightgray')
     land.draw(window)
 
+
 # стены дома
 
 
