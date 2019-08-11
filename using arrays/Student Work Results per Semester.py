@@ -28,7 +28,7 @@ N = {}  # временный словарь
 D = {}
 x = 0
 while True:
-    # не актуально! мысль ... создать внутри цикла короткий список и добавлять в основной массив его вложенным массивом
+
     x = input()
 
     if x == str('#'):
@@ -39,7 +39,7 @@ while True:
     stud = B[0]
     val = B[1]
 
-    if stud.isdigit() and val.isdigit() and 0 <= int(stud) < students:
+    if stud.isdigit() and val.isdigit():
         stud = int(stud)
         val = int(val)
         # загоняем во временный словарь, чтобы потом сравнить есть ли такой же ключ в постоянном словре
@@ -55,14 +55,21 @@ K = []  # ключи
 for i in D.keys():
     K.append(i)
 
-V = []  # значения
+
+Q = {}
+# значения
 for i in D.values():
-    i = sorted(i, reverse=True)  # сортируеми переворачиваем
-    print(i)
-    #
-    V.append(i)
+    i = sorted(i, reverse=True)
+    # здесь суммы у разных студентов могут совпадать и будет затираться словать
+    P = {sum(i): i}
+    Q.update(P)
 
+T = list(Q.keys())
+T = sorted(T, reverse=True)
 
-print(D)
+I = []
+for i in T:
+    I.append(Q[i])
 
-print(V)
+for row in I:
+    print(' '.join(map(str, row)), end=' ')
