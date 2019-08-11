@@ -56,20 +56,20 @@ for i in D.keys():
     K.append(i)
 
 
-Q = {}
+I = []
 # значения
 for i in D.values():
     i = sorted(i, reverse=True)
-    # !!!!!!!!!!ошибка!!!!!!!!!!!!!! здесь суммы у разных студентов могут совпадать и будет затираться словать
-    P = {sum(i): i}
-    Q.update(P)
 
-T = list(Q.keys())
-T = sorted(T, reverse=True)
+    I.append(i)
 
-I = []
-for i in T:
-    I.append(Q[i])
+J = []
+for i in I:
+    s = sum(i)
+    J.append(s)
 
-for row in I:
-    print(' '.join(map(str, row)), end=' ')
+print(J)
+
+
+"""for row in I:
+    print(' '.join(map(str, row)), end=' ')"""
