@@ -39,7 +39,9 @@ while True:
     stud = B[0]
     val = B[1]
 
-    if stud.isdigit() and val.isdigit():
+    if stud.isdigit() and val.isdigit() and 0 <= int(stud) < students:
+        stud = int(stud)
+        val = int(val)
         # загоняем во временный словарь, чтобы потом сравнить есть ли такой же ключ в постоянном словре
         # и оборачиваем значение словаря в list, чтобы далее добавлять при совпадении другие значения
         N = {stud: [val]}
@@ -49,5 +51,18 @@ while True:
         else:
             D.update(N)
 
+K = []  # ключи
+for i in D.keys():
+    K.append(i)
+
+V = []  # значения
+for i in D.values():
+    i = sorted(i, reverse=True)  # сортируеми переворачиваем
+    print(i)
+    #
+    V.append(i)
+
 
 print(D)
+
+print(V)
