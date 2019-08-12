@@ -7,3 +7,22 @@
 
 Формат выходных данных
 Вывести YES если доставка возможна и NO в противном случае."""
+
+wT = int(input())
+hT = int(input())
+wP = int(input())
+hP = int(input())
+wF = int(input())
+hF = int(input())
+maxW = int(input())
+maxH = int(input())
+
+wAll = wF+wP+wT
+
+hAll = hT+hF
+
+
+if maxW >= wAll and maxH >= hAll:
+    print("YES")
+else:
+    print('NO')
