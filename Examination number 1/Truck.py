@@ -19,10 +19,8 @@ maxH = int(input())
 
 wAll = wF+wP+wT
 
-hAll = hT+hF
+hAll = hT+max(hF, hP)
 
 
 if maxW >= wAll and maxH >= hAll:
     print("YES")
-else:
-    print('NO')
