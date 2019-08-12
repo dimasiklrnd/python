@@ -22,5 +22,19 @@ wAll = wF+wP+wT
 hAll = hT+max(hF, hP)
 
 
-if maxW >= wAll and maxH >= hAll:
+if maxW >= wAll and maxH >= hAll:  # когда все вместе меньше максимально допустимого
     print("YES")
+
+# когда пианино выше допуска, но вес обоих не превышает максимум
+elif maxW >= wAll and maxH >= (hT+hF):
+    print('YES')
+
+
+    
+
+elif maxH < (hT+hF):
+    print('NO')
+
+
+elif maxW < (wT+wP):
+    print('NO')
