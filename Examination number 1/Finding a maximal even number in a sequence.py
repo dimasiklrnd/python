@@ -22,7 +22,7 @@ chet=[]
 for i in N:
     if i%2==0:
         chet.append(i)
-m=0
+
 
 if len(chet)>0:
     m = max(chet)
