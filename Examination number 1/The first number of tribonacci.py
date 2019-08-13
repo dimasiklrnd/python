@@ -11,9 +11,11 @@ t 0 = 0, t 1 = 0, t 2 = 1 , t n+3 = t n + t n+1 + t n+2
 n = int(input())
 
 t = [0, 0, 1]
+b = -1
 
-for i in range(0, n+1):
+for i in range(0, n+4):
     t.append(t[i]+t[i+1]+t[i+2])
+    b += 1
     if t[i] > n:
-        print(t[i])
+        print(b)
         break
