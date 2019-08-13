@@ -14,4 +14,10 @@
 
 
 def dot_product(N, vector1, vector2):
-    pass
+    a = 0
+    while N > 0:
+        n = vector1[N-1]*vector2[N-1]
+        a += n
+        N -= 1
+
+    return a
