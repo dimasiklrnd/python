@@ -9,3 +9,24 @@
 Формат выходных данных
 Одно число — максимальное четное число в последовательности, если четные числа в ней присутствуют,
  иначе - 0.'''
+
+N=[]
+while True:
+    x = int(input())
+    if x==0:
+        break
+    else:
+        N.append(x)
+
+chet=[]
+for i in N:
+    if i%2==0:
+        chet.append(i)
+m=0
+
+if len(chet)>0:
+    m = max(chet)
+    print(m)
+
+else:
+    print(0)
