@@ -1,4 +1,6 @@
 class Car():
+
+
     def __init__(self, make, model, year):
         '''инициализирует атрибуты описания автомобиля'''
         self.make = make
