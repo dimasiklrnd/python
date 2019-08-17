@@ -21,15 +21,18 @@ if вопрос == 'д':
         if key == 'конец':
             active = False
             continue
+
         value = input("значение: ")
         if value == 'конец':
             active = False
             continue
+
         другое[key] = value
 
     user1 = User(имя, фамилия, **другое)
     user1.describe_user()
     user1.greet_user()
+
 else:
     user1 = User(имя, фамилия)
     user1.describe_user()
