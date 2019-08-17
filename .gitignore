@@ -7,4 +7,5 @@ graphic primitives/__pycache__/**
 physical modeling/__pycache__/**
 .vscode/settings.json
 lessons/__pycache__/**
-.vscode/settings.json
+.vscode/**.json
+
