@@ -6,3 +6,4 @@ robot-tasks-master/pyrob/tasks/__pycache__/**
 graphic primitives/__pycache__/**
 physical modeling/__pycache__/**
 .vscode/settings.json
+lessons/__pycache__/**
