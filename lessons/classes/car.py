@@ -14,14 +14,15 @@ class Car():
 
     def read_odometer(self):
         """выводити пробег машины в милях"""
-        print("This car has " + str(self.odometer_reading) + " kilometers on it.")
+        print("Этот автомобиль имеет пробег " +
+              str(self.odometer_reading) + " километров.")
 
     def update_odometer(self, milage):
         """при попытке обратной подкрутке изменение отклоняется"""
         if milage >= self.odometer_reading:
             self.odometer_reading = milage
         else:
-            print("You can't roll back an odometer!")
+            print("Вы не можете уменьшить показания спидометра!")
 
     def increment_odometer(self, miles):
         """увеличивает показания одометра с заданным приращением"""

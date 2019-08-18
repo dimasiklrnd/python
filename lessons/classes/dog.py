@@ -8,9 +8,8 @@ class Dog():
 
     def sit(self):
         """собака садится по команде"""
-        print(self.name.title() + ', is now sitting.')
+        print(self.name.title() + ', сейчас сидит.')
 
     def roll_over(self):
         """собака перекатывается по команде"""
-        print(self.name.title() + ', rolled over.')
-
+        print(self.name.title() + ', перевернулся.')
