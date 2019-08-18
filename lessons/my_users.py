@@ -43,3 +43,8 @@ else:
 user2 = User('лерочка', "ляпкина", годиков='10', школа='110', класс='4')
 user2.describe_user()
 user2.greet_user()
+user2.increment_login_attemts()
+user2.increment_login_attemts()
+user2.increment_login_attemts()
+user2.increment_login_attemts()
+user2.reset_login_attemts()

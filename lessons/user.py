@@ -12,6 +12,7 @@ class User():
             self.profile['фамилия'] = self.last_name
             for self.k, self.v in self.other_info.items():
                 self.profile[self.k] = self.v
+        self.login_attemts = 0
 
     def describe_user(self):
         """вывод персональной информации о пользователе"""
@@ -29,3 +30,15 @@ class User():
         privet = '\nПриветствуем Вас, ' + self.first_name.title()+' ' + \
             self.last_name.title() + '!'
         print(privet)
+
+    def increment_login_attemts(self):
+        """ увеличивает значение (попытки входа) на 1 """
+        self.login_attemts += 1
+        # print(self.login_attemts)
+        return self.login_attemts
+
+    def reset_login_attemts(self):
+        """ сбрасывает счетчик (попытки входа) на 0 """
+        self.login_attemts = 0
+        # print(self.login_attemts)
+        return self.login_attemts
