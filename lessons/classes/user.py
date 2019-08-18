@@ -44,14 +44,9 @@ class User():
         return self.login_attemts
 
 
-class Admin(User):
-    """инициализирует атрибуты класса-родителя
-        Затем иниц. атрибуты, специфические для администратора"""
-
-    def __init__(self, first_name, last_name, **other_info):
-        super().__init__(first_name, last_name, **other_info)
-        self.privileges = ['разрешено добавлять сообщения',
-                           "разрешено удалять пользователей", "разрешено банить пользователей"]
+class Privileges():
+    def __init__(self):
+        self.privileges = []
 
     def show_privileges(self):
         """выводит список привелегий"""
@@ -59,3 +54,14 @@ class Admin(User):
             print('\n\tВы наделены следующими привелегиями:')
             for i in self.privileges:
                 print('\t - ' + i)
+
+
+class Admin(User):
+    """инициализирует атрибуты класса-родителя
+        Затем иниц. атрибуты, специфические для администратора"""
+
+    def __init__(self, first_name, last_name, **other_info):
+        super().__init__(first_name, last_name, **other_info)
+        """self.privileges = ['разрешено добавлять сообщения',
+                           "разрешено удалять пользователей", "разрешено банить пользователей"]"""
+        self.priv = Privileges()

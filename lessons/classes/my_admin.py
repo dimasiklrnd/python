@@ -6,10 +6,17 @@ from user import Admin
 флаг = True
 while флаг:
     вопрос = input("Желаете ввести другие данные? (д/н): ")
-    if вопрос == 'д' or 'н':
+    if вопрос == 'д':
         флаг = False
+    if вопрос == 'н':
+        флаг = False
+    else:
+        флаг = True
 
 другое = {}
+
+priveleges_message = ['разрешено добавлять сообщения',
+                      "разрешено удалять пользователей", "разрешено банить пользователей"]
 
 if вопрос == 'д':
     print('\n\tВводите сначала атрибут, а на следующей строке - значение.\n\n\t\t__!!! По завершении введите "конец" !!!___')
@@ -31,10 +38,12 @@ if вопрос == 'д':
     user1 = Admin(имя, фамилия, **другое)
     user1.describe_user()
     user1.greet_user()
-    user1.show_privileges()
+    user1.priv.privileges = priveleges_message
+    user1.priv.show_privileges()
 
 else:
     user1 = Admin(имя, фамилия)
     user1.describe_user()
     user1.greet_user()
-    user1.show_privileges()
+    user1.priv.privileges = priveleges_message
+    user1.priv.show_privileges()
