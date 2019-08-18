@@ -10,3 +10,4 @@ lessons/__pycache__/**
 .vscode/**.json
 
 lessons/classes/__pycache__/**
+lib_python.doc

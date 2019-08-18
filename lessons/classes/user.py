@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 class User():
     """Класс пользователя"""
 
@@ -7,7 +9,7 @@ class User():
         self.last_name = last_name
         self.other_info = other_info
         if self.other_info:  # если передано больше аргументов, то делаем словарь
-            self.profile = {}
+            self.profile = OrderedDict() # словарь который выводится в том порядке в котором его создали
             self.profile['имя'] = self.first_name
             self.profile['фамилия'] = self.last_name
             for self.k, self.v in self.other_info.items():

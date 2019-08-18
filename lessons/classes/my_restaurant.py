@@ -18,7 +18,7 @@ my_res2.increment_number_served(32)
 my_res2.closed_restaurant()
 
 my_iceCream = IseCreamStand(
-    'ларек "Холодок"', 'мороженое', 5)
+    'ларек "Холодок"', 'мороженое')
 my_iceCream.describe_restaurant()
 my_iceCream.increment_number_served(18)
 my_iceCream.open_restaurant()

@@ -1,4 +1,5 @@
 from user import User, Admin
+from collections import OrderedDict
 
 
 имя = input("Введите ваше имя: ")
@@ -7,10 +8,14 @@ from user import User, Admin
 флаг = True
 while флаг:
     вопрос = input("Желаете ввести другие данные? (д/н): ")
-    if вопрос == 'д' or 'н':
+    if вопрос == 'д':
         флаг = False
+    elif вопрос == 'н':
+        флаг = False
+    else:
+        флаг = True
 
-другое = {}
+другое = OrderedDict()
 
 if вопрос == 'д':
     print('\n\tВводите сначала атрибут, а на следующей строке - значение.\n\n\t\t__!!! По завершении введите "конец" !!!___')
