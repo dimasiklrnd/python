@@ -1,5 +1,4 @@
-from user import User
-
+from user import Admin
 
 имя = input("Введите ваше имя: ")
 фамилия = input("Ваша фамилия: ")
@@ -29,22 +28,13 @@ if вопрос == 'д':
 
         другое[key] = value
 
-    user1 = User(имя, фамилия, **другое)
+    user1 = Admin(имя, фамилия, **другое)
     user1.describe_user()
     user1.greet_user()
+    user1.show_privileges()
 
 else:
-    user1 = User(имя, фамилия)
+    user1 = Admin(имя, фамилия)
     user1.describe_user()
     user1.greet_user()
-
-# ----------------------------------------------------------------------------
-
-user2 = User('лерочка', "ляпкина", годиков='10', школа='110', класс='4')
-user2.describe_user()
-user2.greet_user()
-user2.increment_login_attemts()
-user2.increment_login_attemts()
-user2.increment_login_attemts()
-user2.increment_login_attemts()
-user2.reset_login_attemts()
+    user1.show_privileges()

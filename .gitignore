@@ -9,3 +9,4 @@ physical modeling/__pycache__/**
 lessons/__pycache__/**
 .vscode/**.json
 
+lessons/classes/__pycache__/**

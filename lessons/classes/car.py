@@ -47,8 +47,14 @@ class Battery():
         elif self.battery_size == 85:
             range = 290
         message = "Этот авто может проехать примерно " + \
-            str(range) + " на полной зарядке аккумулятора."
+            str(range) + " км на полной зарядке аккумулятора."
         print(message)
+
+    def upgrate_battery(self):
+        """проверяет размер аккумулятора, если менне 85, то устанавливает это значение"""
+        if self.battery_size < 85:
+            self.battery_size = 85
+        return self.battery_size
 
 
 class ElectricCar(Car):

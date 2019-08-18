@@ -9,17 +9,17 @@ class Restaurant():
 
     def describe_restaurant(self):
         """описывает название и тип заведения"""
-        print("\nRestaurant name is " + self.restaurant_name.title() + '.')
-        print("Restaurant type is " + self.cuisine_type.title() + '.')
+        print("\nНазвание заведения " + self.restaurant_name.title() + '.')
+        print("Тип заведения - " + self.cuisine_type.title() + '.')
 
     def open_restaurant(self):
         """выводит сообщение о том что ресторан открыт"""
-        print(self.restaurant_name.title() + " now is opened.")
+        print(self.restaurant_name.title() + " сейчас открыт.")
         print("Обслужено клиентов сегодня: " + str(self.обслуж_клиенты))
 
     def closed_restaurant(self):
         """ресторан закрыт"""
-        print(self.restaurant_name.title() + " now is closed.")
+        print(self.restaurant_name.title() + " сейчас закрыт.")
         print("Обслужено клиентов сегодня: " + str(self.обслуж_клиенты))
 
     def set_number_served(self, update):
@@ -36,16 +36,15 @@ class Restaurant():
 
 
 class IseCreamStand(Restaurant):
-    def __init__(self, restaurant_name, cuisine_type, обслуж_клиенты=0, *flavors):
+    def __init__(self, restaurant_name, cuisine_type, обслуж_клиенты=0):
         """инициализирует атрибуты класса-родителя
         Затем иниц. атрибуты, специфические для мороженого"""
-        super().__init__(restaurant_name, cuisine_type, обслуж_клиенты=0, *flavors)
-        self.flavors = flavors# атрибут для хранения списка мороженого
+        super().__init__(restaurant_name, cuisine_type, обслуж_клиенты=0)
+        self.flavors = []  # атрибут для хранения списка мороженого
 
     def ice_creams_assortiment(self):
         """выводит ассортимент мороженого"""
         if self.flavors:
-            print('\nУ нас в продаже следующий ассортимент:')
+            print('\tУ нас в продаже следующий ассортимент:')
             for i in self.flavors:
-                print(i, end=', ')
-
+                print('\t\t- ' + i.upper())

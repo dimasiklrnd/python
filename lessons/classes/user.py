@@ -42,3 +42,20 @@ class User():
         self.login_attemts = 0
         # print(self.login_attemts)
         return self.login_attemts
+
+
+class Admin(User):
+    """инициализирует атрибуты класса-родителя
+        Затем иниц. атрибуты, специфические для администратора"""
+
+    def __init__(self, first_name, last_name, **other_info):
+        super().__init__(first_name, last_name, **other_info)
+        self.privileges = ['разрешено добавлять сообщения',
+                           "разрешено удалять пользователей", "разрешено банить пользователей"]
+
+    def show_privileges(self):
+        """выводит список привелегий"""
+        if self.privileges:
+            print('\n\tВы наделены следующими привелегиями:')
+            for i in self.privileges:
+                print('\t - ' + i)
