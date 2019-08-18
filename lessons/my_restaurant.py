@@ -1,4 +1,4 @@
-from restaurant import Restaurant
+from restaurant import Restaurant, IseCreamStand
 
 my_res_0 = Restaurant('paris', 'eat', 10)
 my_res_0.describe_restaurant()
@@ -16,3 +16,9 @@ my_res2.set_number_served(8)
 my_res2.open_restaurant()
 my_res2.increment_number_served(32)
 my_res2.closed_restaurant()
+
+my_iceCream = IseCreamStand('ларек "Холодок"', 'мороженое', 'пломбир', 'большой папа', 'бодрая корова')
+my_iceCream.describe_restaurant()
+my_iceCream.open_restaurant()
+my_iceCream.ice_creams_assortiment()
+

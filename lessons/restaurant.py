@@ -33,3 +33,19 @@ class Restaurant():
         self.incremenf = incremenf
         self.обслуж_клиенты += self.incremenf
         return self.обслуж_клиенты
+
+
+class IseCreamStand(Restaurant):
+    def __init__(self, restaurant_name, cuisine_type, обслуж_клиенты=0, *flavors):
+        """инициализирует атрибуты класса-родителя
+        Затем иниц. атрибуты, специфические для мороженого"""
+        super().__init__(restaurant_name, cuisine_type, обслуж_клиенты=0, *flavors)
+        self.flavors = flavors# атрибут для хранения списка мороженого
+
+    def ice_creams_assortiment(self):
+        """выводит ассортимент мороженого"""
+        if self.flavors:
+            print('\nУ нас в продаже следующий ассортимент:')
+            for i in self.flavors:
+                print(i, end=', ')
+
