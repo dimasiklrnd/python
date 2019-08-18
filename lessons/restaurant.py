@@ -22,15 +22,14 @@ class Restaurant():
         print(self.restaurant_name.title() + " now is closed.")
         print("Обслужено клиентов сегодня: " + str(self.обслуж_клиенты))
 
-
-    def set_number_served(self,update):
-        self.update=update
-        self.обслуж_клиенты=self.update
+    def set_number_served(self, update):
+        """обновляет количество обслуженных клиентов (предыдущие показания стираются)"""
+        self.update = update
+        self.обслуж_клиенты = self.update
         return self.обслуж_клиенты
 
-    def increment_number_served(self,incremenf):
-        self.incremenf=incremenf
-        self.обслуж_клиенты+=self.incremenf
+    def increment_number_served(self, incremenf):
+        """прибавляет количество обслуженных клиентов"""
+        self.incremenf = incremenf
+        self.обслуж_клиенты += self.incremenf
         return self.обслуж_клиенты
-
-

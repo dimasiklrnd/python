@@ -9,7 +9,7 @@ my_res1 = Restaurant('palladium', 'pizza', 5)
 my_res1.describe_restaurant()
 my_res1.open_restaurant()
 
-my_res2 = Restaurant('petrovskyi prichal', 'ice cream', 50)
+my_res2 = Restaurant('petrovskyi prichal', 'ice cream')
 my_res2.describe_restaurant()
 my_res2.closed_restaurant()
 my_res2.set_number_served(8)
