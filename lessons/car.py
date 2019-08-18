@@ -1,6 +1,5 @@
 class Car():
 
-
     def __init__(self, make, model, year):
         '''инициализирует атрибуты описания автомобиля'''
         self.make = make
@@ -12,7 +11,6 @@ class Car():
         """возвращает аккуратно отформатированное описание"""
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
         return long_name.title()
-
 
     def read_odometer(self):
         """выводити пробег машины в милях"""
@@ -29,3 +27,35 @@ class Car():
         """увеличивает показания одометра с заданным приращением"""
         self.odometer_reading += miles
 
+
+class Battery():
+    """ простая модель аккумулятора электромобиля"""
+
+    def __init__(self, battery_size=70):
+        """инициализирует атрибуты аккумулятора"""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Выводит информацию о батарее"""
+        print('Этот автомобиль имеет мощность батареи ' +
+              str(self.battery_size) + ' кВт.')
+
+    def get_range(self):
+        """выводит приблизительный запас хода для аккумулятора"""
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 290
+        message = "Этот авто может проехать примерно " + \
+            str(range) + " на полной зарядке аккумулятора."
+        print(message)
+
+
+class ElectricCar(Car):
+    """ представляет аспекты машины, специфияеские для электромобилей"""
+
+    def __init__(self, make, model, year):
+        """инициализирует атрибуты класса-родителя
+        Затем иниц. атрибуты, специфические для электромобилей"""
+        super().__init__(make, model, year)
+        self.battery = Battery()
