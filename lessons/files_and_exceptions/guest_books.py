@@ -9,9 +9,27 @@ while flag:
         continue
     write_book= 'Привет, человек по имени ' + name.title() + '!'
     print(write_book)
-    with open(file_write, 'a') as f_o:
-        f_o.write(write_book + '\n')
+    file_wr = 'lessons/files_and_exceptions/' + name + '.txt'
+    while not file_wr:
+        with open(file_wr, 'w') as f_o:
+            f_o.write(write_book + '\n')
+
+
+    n=1
+    while file_wr:
+        n+=1
+        print(n)
+        file_wr = 'lessons/files_and_exceptions/' + name + str(n)+'.txt'
+        with open(file_wr, 'w') as f_o:
+            f_o.write(write_book + '\n')
+
+
+
+
 
     question = input('Почему вам нравится программировать?: ')
-    with open(file_write, 'a') as f_o:
+    if question == 'енд':
+        flag = False
+        continue
+    with open(file_wr, 'a') as f_o:
         f_o.write('Ответ ' + name.title() + ' на вопрос о программировании: '+question + '\n')
