@@ -18,10 +18,13 @@ while flag:
     n=1
     while file_wr:
         n+=1
-        print(n)
+
         file_wr = 'lessons/files_and_exceptions/' + name + str(n)+'.txt'
-        with open(file_wr, 'w') as f_o:
-            f_o.write(write_book + '\n')
+        print(file_wr)
+        if not file_wr:
+            with open(file_wr, 'w') as f_o:
+                f_o.write(write_book + '\n')
+            break
 
 
 
