@@ -1,7 +1,7 @@
 import os  # Чтобы получить содержимое этого каталога в виде списка
 
 flag = True
-print('Как закончите введите "енд')
+print('Как закончите, введите "енд')
 file_write = 'lessons/files_and_exceptions/guest_books.txt'
 
 while flag:
