@@ -3,36 +3,22 @@ print('Как закончите введите "енд')
 file_write = 'lessons/files_and_exceptions/guest_books.txt'
 
 while flag:
-    name = input('Ваше имя?: ')
-    if name == 'енд':
+    nam = input('Ваше имя?: ')
+    if nam == 'енд':
         flag = False
         continue
-    write_book= 'Привет, человек по имени ' + name.title() + '!'
+    write_book = 'Привет, человек по имени ' + nam.title() + '!'
+
     print(write_book)
-    file_wr = 'lessons/files_and_exceptions/' + name + '.txt'
-    while not file_wr:
-        with open(file_wr, 'w') as f_o:
-            f_o.write(write_book + '\n')
 
-
-    n=1
-    while file_wr:
-        n+=1
-
-        file_wr = 'lessons/files_and_exceptions/' + name + str(n)+'.txt'
-        print(file_wr)
-        if not file_wr:
-            with open(file_wr, 'w') as f_o:
-                f_o.write(write_book + '\n')
-            break
-
-
-
-
+    file_wr = 'lessons/files_and_exceptions/' + nam + '.txt'
+    with open(file_wr, 'x') as f_o:  # открытие на запись если файла не существует, иначе исключение
+        f_o.write(write_book + '\n')
 
     question = input('Почему вам нравится программировать?: ')
     if question == 'енд':
         flag = False
         continue
     with open(file_wr, 'a') as f_o:
-        f_o.write('Ответ ' + name.title() + ' на вопрос о программировании: '+question + '\n')
+        f_o.write('Ответ ' + nam.title() +
+                  ' на вопрос о программировании: '+question + '\n')
