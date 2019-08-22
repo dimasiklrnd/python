@@ -6,44 +6,39 @@ h = 600
 window = gr.GraphWin("Landscape", w, h)
 
 
-# фон неба
 def sky():
+    '''фон неба'''
     sky = gr.Rectangle(gr.Point(0, 0), gr.Point(w, h/2))
     sky.setFill('blue')
     sky.draw(window)
 
-# фон земли
-
 
 def land():
+    '''фон земли'''
     land = gr.Rectangle(gr.Point(0, h/2), gr.Point(w, h))
     land.setFill('lightgray')
     land.draw(window)
 
 
-# стены дома
-
-
 def building():
+    '''стены дома'''
     building = gr.Rectangle(gr.Point(w/3-100, h/2-100),
                             gr.Point(w/3+100, h/2+100))
     building.setFill('gray')
     building.setWidth(5)
     building.draw(window)
 
-# окно в доме
-
 
 def wind():
+    '''окно в доме'''
     wind = gr.Rectangle(gr.Point(w/3-40, h/2-40), gr.Point(w/3+40, h/2+40))
     wind.setFill('yellow')
     wind.setWidth(5)
     wind.draw(window)
 
-# решетки окна
-
 
 def wind_line():
+    '''решетки окна'''
     wind_line1 = gr.Line(gr.Point(w/3, h/2-40),
                          gr.Point(w/3, h/2+40))
     wind_line2 = gr.Line(gr.Point(w/3-40, h/2),
@@ -54,19 +49,17 @@ def wind_line():
     wind_line2.draw(window)
 
 
-# крыша дома
 def roof():
+    '''крыша дома'''
     roof = gr.Polygon(gr.Point(w/3-100, h/2-100), gr.Point(w /
                                                            3, h/2-200), gr.Point(w/3+100, h/2-100))
     roof.setFill('darkred')
     roof.setWidth(5)
     roof.draw(window)
 
-# облака
-
 
 def cloud():
-    # здесь лучше написать одну функцию, и вызывать ее с разными параметрами
+    '''облака, здесь лучше написать одну функцию, и вызывать ее с разными параметрами'''
     cloud = gr.Circle(gr.Point(w/10, h/10), 20)
     cloud.setFill('white')
     j = w
@@ -91,18 +84,17 @@ def cloud():
     cloud3.draw(window)
     cloud4.draw(window)
 
-# луна
-
 
 def moon():
+    """луна"""
     moon = gr.Circle(gr.Point(w/1.4, h/7), 50)
     moon.setFill('yellow')
     moon.draw(window)
 
 
-# ветви елки
 def tree():
-    p = h # здесь лучше написать одну функцию, и вызывать ее с разными параметрами
+    '''ветви елки'''
+    p = h  # здесь лучше написать одну функцию, и вызывать ее с разными параметрами
     tree = gr.Polygon(gr.Point(w/1.4-50, h/2+70), gr.Point(w /
                                                            1.4+40, h/2-30), gr.Point(w/1.4+120, h/2+70))
     tree.setFill('darkgreen')
@@ -121,10 +113,9 @@ def tree():
     tree1.draw(window)
     tree.draw(window)
 
-# ствол дерева
-
 
 def trunk():
+    '''ствол дерева'''
     p2 = h+200
     trunk = gr.Rectangle(gr.Point(w/1.4+32, p2/2+70),
                          gr.Point(w/1.4+48, p2/2+170))
@@ -133,9 +124,8 @@ def trunk():
     trunk.draw(window)
 
 
-# далее вызываем наши объекты на рисование в той последовательности,
-# при которой слои соответственно будут накладываться друг на друга
 def builder():
+    '''вызываем наши объекты на рисование в той последовательности, при которой слои соответственно будут накладываться друг на друга'''
     sky()
     land()
     cloud()
