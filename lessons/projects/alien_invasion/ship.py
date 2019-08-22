@@ -11,7 +11,7 @@ class Ship():
         self.rect=self.image.get_rect()
         self.screen_rect = screen.get_rect()
         #Каждый новый корабль появляется у нижнего края экрана
-        self.rect.centerx = self.center
+        self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
         #сохранение вещественной координаты центра корабля
         self.center=float(self.rect.centerx)
@@ -29,4 +29,6 @@ class Ship():
             self.center += self.ai_settings.ship_speed_factor
         if self.moving_left:
             self.center -= self.ai_settings.ship_speed_factor
+        #обновление атрибута rect на основании rect.center
+        self.rect.centerx = self.center
 
