@@ -12,3 +12,4 @@ lessons/__pycache__/**
 lessons/classes/__pycache__/**
 lib_python.doc
 lessons/testing/__pycache__/**
+lessons/projects/alien_invasion/__pycache__/**
