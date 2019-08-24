@@ -1,14 +1,14 @@
-# interactive queries
+#  интерактивные запросы
 import shelve
 fieldnames = ('name', 'age', 'job', 'pay')
 maxfield   = max(len(f) for f in fieldnames)
 db = shelve.open('class-shelve')
 
 while True:
-    key = input('\nKey? => ')           # key or empty line, exc at eof
+    key = input('\nKey? => ')           # ключ или пустая строка, возбуждает исключение при вводе EOF
     if not key: break
     try:
-        record = db[key]                # fetch by key, show in console
+        record = db[key]                # извлечьзапись по ключу и вывести
     except:
         print('No such key "%s"!' % key)
     else:
