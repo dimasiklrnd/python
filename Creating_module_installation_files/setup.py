@@ -4,8 +4,8 @@ setup(
     name='vsearch',  # Аргумент name определяет имя дистрибутива
     version='1.0',
     description='The Head First Python Search Tools',
-    author='HF Python 2e',
-    author_email='hfpy2e@gmail.com',
-    url='headfirstlabs.com',
+    author='Dimasik',
+    author_email='dimasik.rnd@mail.ru',
+    url='https://github.com/dimasiklrnd',
     py_modules=['vsearch'],  # Спиисок файлов, которые нужно включить в пакет
 )
