@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% block body %}
 <h2>{{ the_title }}</h2>
-<p>You submitted the following data:</p>
+<p>Вы отправили следующие данные:</p>
 <table>
     <tr>
-        <td>Phrase:</td>
+        <td>Фраза:</td>
         <td>{{ the_phrase }}</td>
     </tr>
     <tr>
-        <td>Letters:</td>
+        <td>Буквы:</td>
         <td>{{ the_letters }}</td>
     </tr>
 </table>
-<p>When "{{the_phrase }}" is search for "{{ the_letters }}", the following
-    results are returned:</p>
+<p>Когда из фразы "{{the_phrase }}" ищем буквы "{{ the_letters }}", получаем следующие результаты:</p>
 <h3>{{ the_results }}</h3>
 {% endblock %}

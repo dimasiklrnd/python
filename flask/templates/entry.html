@@ -3,17 +3,17 @@
 <h2>{{ the_title }}</h2>
 <form method='POST' action='/search4'>
     <table>
-        <p>Use this form to submit a search request:</p>
+        <p>Используйте эту форму для отправки запроса поиска:</p>
         <tr>
-            <td>Phrase:</td>
+            <td>Фраза:</td>
             <td><input name='phrase' type='TEXT' width='60'></td>
         </tr>
         <tr>
-            <td>Letters:</td>
-            <td><input name='letters' type='TEXT' value='aeiouy'></td>
+            <td>Буквы:</td>
+            <td><input name='letters' type='TEXT' value='аеёиоуыэюя'></td>
         </tr>
     </table>
-    <p>When you're ready, click this button:</p>
-    <p><input value='Do it!' type='SUBMIT'></p>
+    <p>Когда вы будете готовы, нажмите эту кнопку:</p>
+    <p><input value='Искать!' type='SUBMIT'></p>
 </form>
 {% endblock %}
