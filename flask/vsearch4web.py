@@ -20,7 +20,7 @@ def log_request(req: 'flask_request', res: str) -> None:
             (phrase, letters, ip, browser_string, results)
             values
             (%s, %s, %s, %s, %s)"""
-    # послать запрос серверу, подставив значения для всех аргументов (в кортеже)
+    # послать запрос серверу, подставив значения для всех аргументов (в кортеже) .
     cursor.execute(_SQL, (req.form['phrase'],
                     req.form['letters'],
                     req.remote_addr,
