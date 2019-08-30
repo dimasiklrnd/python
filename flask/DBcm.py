@@ -1,6 +1,5 @@
 import mysql.connector
 
-
 class UseDatabase:
 
     def __init__(self, config: dict):
@@ -10,11 +9,12 @@ class UseDatabase:
         # установить соединение
         self.conn = mysql.connector.connect(**self.configuration)
         # создать курсор для отправки команд на сервер и получения результатов
-        return self.conn.cursor()
+        self.cursor = self.conn.cursor()
+        return self.cursor
 
     def __exit__(self, exec_type, exc_value, exc_trace):
         # принудительно записать данные в таблицу
         self.conn.commit()
         # убрать за собой по окончании
-        self.conn.cursor().close()
+        self.cursor.close()
         self.conn.close()
