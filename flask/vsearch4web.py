@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, escape
 from vsearch import search4letter
 from log_mysql import log_request
 
+
 app = Flask(__name__,)
 
 @app.route('/search4', methods=['POST'])
