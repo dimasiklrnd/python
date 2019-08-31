@@ -10,6 +10,7 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
 
 def log_request(req: 'flask_request', res: str) -> None:
     '''журналирует веб запрос и возвращаемые результаты'''
+
     with UseDatabase(app.config['dbconfig']) as cursor:
         _SQL = """insert into log
                 (phrase, letters, ip, browser_string, results)
@@ -21,14 +22,6 @@ def log_request(req: 'flask_request', res: str) -> None:
                             req.user_agent.browser,
                             res, ))
 
-def view_the_log() -> 'html':
-    with UseDatabase(app.config['dbconfig']) as cursor:
-        _SQL="""select phrase, letters, ip, browser_string, results from log"""
-        cursor.execute(_SQL)
-        contents = cursor.fetchall()
-    titles = ( 'Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
-    return render_template('viewlog.html',
-                           the_title='View Log',
-                           the_row_titles=titles,
-                           the_data=contents,)
+
+
 
