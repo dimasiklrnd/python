@@ -1,17 +1,11 @@
-from flask import Flask, render_template, request, escape, session
+from flask import Flask, render_template, request, session
 from vsearch import search4letter
-import mysql.connector
-from log_mysql_with import log_request as lr
+from log_mysql_with import log_request as lr, view_the_log as vl
 from decorator_checker import check_logged_in
-from DBcm import UseDatabase
+from DBcm import UseDatabase, ConnectionError
 
 
 app = Flask(__name__,)
-
-app.config['dbconfig'] = {'host': '127.0.0.1',
-                          'user': 'vsearch',
-                          'password': 'vsearchpasswd',
-                          'database': 'vsearchlogDB', }
 
 
 @app.route('/search4', methods=['POST'])
@@ -23,7 +17,7 @@ def do_search() -> 'html':
     try:
         lr(request, results)
     except Exception as err:
-        print('Ошибка типа: ', err)
+        print('Ошибка при сохранении в базу: ', str(err))
     return render_template('results.html',
                            the_title=title,
                            the_phrase=phrase,
@@ -40,30 +34,38 @@ def entry_page() -> 'html':
 
 @app.route('/viewlog')
 @check_logged_in
-def view_the_log() -> 'html':
-    with UseDatabase(app.config['dbconfig']) as cursor:
-        _SQL = """select phrase, letters, ip, browser_string, results from log"""
-        cursor.execute(_SQL)
-        contents = cursor.fetchall()
-    titles = ('Phrase', 'Letters', 'Remote_addr', 'User_agent', 'Results')
+def view_log() -> 'html':
+    try:
+        return vl()
+    except ConnectionError as err:
+        print('Ваша база данных подключена?: ', str(err))
+    except Exception as err:
+        print('Ошибка типа: ', str(err))
     return render_template('viewlog.html',
-                            the_title='View Log',
-                            the_row_titles=titles,
-                            the_data=contents,)
-
-
+                           the_title='!!! Не удалось подключиться к данным !!!',
+                           the_row_titles=(),
+                           the_data=(),)
 
 
 @app.route('/login')
 def do_login() -> str:
     session['logged_in'] = True
-    return 'Вы вошли в систему.'
+    return render_template('viewlog.html',
+                           the_title='Вы вошли в систему.',
+                           the_row_titles=(),
+                           the_data=(),)
 
 
 @app.route('/logout')
 def do_logout() -> str:
-    session.pop('logged_in')
-    return 'Вы вышли из системы.'
+    try:
+        session.pop('logged_in')
+    except Exception:
+        pass
+    return render_template('viewlog.html',
+                           the_title='Вы вышли из системы.',
+                           the_row_titles=(),
+                           the_data=(),)
 
 
 app.secret_key = 'YouWillNeverGuessMySecretKey'
