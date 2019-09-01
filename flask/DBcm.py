@@ -1,7 +1,17 @@
 import mysql.connector
 
+
 class ConnectionError(Exception):
     pass
+
+
+class CredentialsError(Exception):
+    pass
+
+
+class SQLError(Exception):
+    pass
+
 
 class UseDatabase:
 
@@ -17,6 +27,8 @@ class UseDatabase:
             return self.cursor
         except mysql.connector.errors.InterfaceError as err:
             raise ConnectionError(err)
+        except mysql.connector.errors.ProgrammingError as err:
+            raise CredentialsError(err)
 
     def __exit__(self, exec_type, exc_value, exc_trace):
         # принудительно записать данные в таблицу
@@ -24,3 +36,7 @@ class UseDatabase:
         # убрать за собой по окончании
         self.cursor.close()
         self.conn.close()
+        if exec_type is mysql.connector.errors.ProgrammingError:
+            raise SQLError(exec_type)
+        elif exec_type:
+            raise exec_type(exc_value)

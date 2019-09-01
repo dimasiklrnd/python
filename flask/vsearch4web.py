@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session
 from vsearch import search4letter
 from log_mysql_with import log_request as lr, view_the_log as vl
 from decorator_checker import check_logged_in
-from DBcm import UseDatabase, ConnectionError
+from DBcm import UseDatabase, ConnectionError, CredentialsError, SQLError
 
 
 app = Flask(__name__,)
@@ -39,6 +39,10 @@ def view_log() -> 'html':
         return vl()
     except ConnectionError as err:
         print('Ваша база данных подключена?: ', str(err))
+    except CredentialsError as err:
+        print('Ошибка логин/пароль. Error: ', str(err))
+    except SQLError as err:
+        print('Ваш запрос SQL правильный? Error:', str(err))
     except Exception as err:
         print('Ошибка типа: ', str(err))
     return render_template('viewlog.html',
