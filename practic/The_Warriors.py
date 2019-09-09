@@ -1,22 +1,51 @@
-'''Давайте начнем с малого — сражения 1×1. В этой миссии вам необходимо будет создать класс Warrior, у экземпляров которого будет 2 параметра — здоровье (равное 50) и атака (равная 5), а также свойство is_alive, которое может быть True (если здоровье воина > 0) или False (в ином случае). Кроме этого вам необходимо создать класс для второго типа солдат — Knight, который будет наследником Warrior, но с увеличенной атакой — 7. Также вам необходимо будет создать функцию fight(), которая будет проводить дуэли между 2 воинами и определять сильнейшего из них. Бои происходят по следующему принципу:
-• каждый ход первый воин наносит второму урон в размере своей атаки, в следствие чего здоровье второго воина уменьшается
-• аналогично поступает и второй воин по отношению к первому.
-Если в конце очередного хода у первого воина здоровье > 0, а у другого — нет, выживший объявляется победителем и функция возвращает True, или False в ином случае.
+class Warrior:
+    def __init__(self, health=50, attack=5):
+        self.h = health
+        self.a = attack
+        self.is_alive = True
 
-Пример:
-chuck = Warrior()
-bruce = Warrior()
-carl = Knight()
-dave = Warrior()
 
-fight(chuck, bruce) == True
-fight(dave, carl) == False
-chuck.is_alive == True
-bruce.is_alive == False
-carl.is_alive == True
-dave.is_alive == False
+class Knight(Warrior):
+    def __init__(self, health=50, attack=7):
+        self.a = attack
+        self.h = health
+        self.is_alive = True
 
-Входные данные: воины.
-Выходные данные: результат поединка (True или False).
 
-Предусловие: 2 типа солдат'''
+def fight(unit_1, unit_2):
+
+    while unit_1.h > 0 and unit_2.h > 0:
+        unit_2.h -= unit_1.a
+        print(unit_2.h)
+        if unit_1.h > 0 and unit_2.h <= 0:
+            unit_2.is_alive = False
+            return True
+        unit_1.h -= unit_2.a
+        print(unit_1.h)
+
+        if unit_2.h > 0 and unit_1.h <= 0:
+            unit_1.is_alive = False
+            return False
+
+
+if __name__ == '__main__':
+    # These "asserts" using only for self-checking and not necessary for auto-testing
+
+    chuck = Warrior()
+    print(chuck.is_alive)
+    bruce = Warrior()
+    carl = Knight()
+    print(carl.is_alive)
+    dave = Warrior()
+    mark = Warrior()
+
+    assert fight(chuck, bruce) == True
+    assert fight(dave, carl) == False
+    assert chuck.is_alive == True
+    assert bruce.is_alive == False
+    assert carl.is_alive == True
+    assert dave.is_alive == False
+    assert fight(carl, mark) == False
+    assert carl.is_alive == False
+
+    print("Coding complete? Let's try tests!")
