@@ -39,7 +39,8 @@ class PageSizer(threading.Thread):
         if self.go_ahead:
             extractor = LinkExtractor(base_url=self.url)
             extractor.feed(html_data)
-            sizers = [PageSizer(url=link, go_ahead=False) for link in extractor.links]
+            sizers = [PageSizer(url=link, go_ahead=False)
+                      for link in extractor.links]
             for sizer in sizers:
                 sizer.start()
             for sizer in sizers:
@@ -67,7 +68,8 @@ def main():
         sizer.join()
 
     for sizer in sizers:
-        print(f'For url {sizer.url} need download {sizer.total_bytes//1024} Kb ({sizer.total_bytes} bytes)')
+        print(
+            f'For url {sizer.url} need download {sizer.total_bytes//1024} Kb ({sizer.total_bytes} bytes)')
 
 
 if __name__ == '__main__':
